@@ -1,0 +1,21 @@
+---
+- hosts: web
+  become: true
+  
+  tasks:
+    - name: Asegurandonos que python-pip esté instalado
+      apt:
+        name: python3-pip
+    
+    - name: Instalando modulo docker-py 
+      pip:
+        name: docker-py
+        state: present
+    
+    - name: Iniciando contenedor
+      docker_container:
+        name: login
+        image: "enmanuelmoreira/angular-10-registration-login-example:{{DOCKER_TAG}}"
+        state: started
+        published_ports:
+          - 0.0.0.0:8080:8080
