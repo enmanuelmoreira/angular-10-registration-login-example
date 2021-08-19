@@ -1,1 +1,2 @@
-[dev]
+[web]
+54.242.133.25 ansible_user=ubuntu
