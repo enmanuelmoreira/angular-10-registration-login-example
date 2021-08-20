@@ -35,5 +35,11 @@ pipeline {
                                 playbook: 'deploy.yml'
             }    
         }
+        stage('Haciendo Limpieza') {
+            steps {
+                sh "echo Limpiando contenedores no usados..."
+                sh "docker system prune"
+            }
+        }
     }
 }
