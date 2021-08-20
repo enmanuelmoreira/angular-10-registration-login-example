@@ -38,7 +38,7 @@ pipeline {
         stage('Haciendo Limpieza') {
             steps {
                 sh "echo Limpiando contenedores no usados..."
-                sh "docker system prune"
+                sh "docker system prune -f"
             }
         }
     }
